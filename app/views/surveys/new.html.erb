@@ -1,0 +1,62 @@
+<center><h3>SF-12® Health Survey Scoring Demonstration<h3></center>
+
+<right><strong>Hi <%=session[:name]%>
+<br>MobileNo: <%=session[:mob]%>
+<br>DateOfBirth: <%=session[:dob]%></strong></right>
+<CENTER>This survey asks for your views about your health. 
+This information will help you keep track of how you feel and how well you are able to do your usual activities.
+
+Answer every question by selecting the answer as indicated. 
+If you are unsure about how to answer a question, please give the best answer you can.</CENTER>
+
+<%= link_to "New user" , new_user_path %>
+<%= link_to 'Take Survey' , new_survey_path %>
+<hr>
+<div id="login_header">
+ <% if current_login %>
+Logged in as <%= current_login.email %>.
+ <%= link_to "Log Out", logout_path %>
+ <% else %>
+ <%= link_to "Sign Up", signup_path %> or
+ <%= link_to "Log In", login_path %>
+ <% end %>
+</div>
+<% flash.each do |key, value| %>
+ <%= content_tag(:div, class: "alert alert-#{key}") do %>
+<p><%= value %></p>
+ <% end %>
+<% end %>
+<!------- form tag-------------------------->
+<%= form_for(@survey) do |f| %>
+	<% @questions.each do |question| %>
+		<%= question.quest %><br>
+		<ul><%= radio_button_tag("survey[questions][#{question.id}]", question.option1)%><%=question.option1%><br>
+		<%= radio_button_tag("survey[questions][#{question.id}]", question.option2)%><%=question.option2%><br>
+		<%= radio_button_tag("survey[questions][#{question.id}]", question.option3)%><%=question.option3%><br>
+		<%= radio_button_tag("survey[questions][#{question.id}]", question.option4)%><%=question.option4%><br>
+		<%= radio_button_tag("survey[questions][#{question.id}]", question.option5)%><%=question.option5%><br></ul>
+		<hr>
+		<% end %>
+		
+	<center><%=  f.submit "save form"  %></center>
+<% end %><br>
+  <hr>
+     
+	
+<hr>
+
+
+  <center><%=  button_to("Reset Form", { action: "new"}, class: "survey")  %></center>
+ 
+  <center><h5>Thank you for completing these questions!</h5></center>
+
+
+ <div>
+ <div class="survey" text-center>
+
+
+
+</div>
+
+  </div>
+

@@ -1,0 +1,38 @@
+
+
+
+
+
+<table border="1"style="width:100%">
+	<tr>
+     
+		<th>Questions</th>
+		<th>option1</th>
+		<th>option2</th>
+		<th>option3</th>
+		<th>option4</th>
+		<th>option5</th>
+
+
+		
+	 </tr>
+	 
+	<% @question.each do |f|%>
+	<tr>
+		<td><%= f.quest %></td>
+		<td><%= f.option1 %></td>
+		<td><%= f.option2 %></td>
+		<td><%= f.option3 %></td>
+		<td><%= f.option4 %></td>
+		<td><%= f.option5 %></td>
+		<td><%= link_to "Edit", edit_question_path(f)%></td>
+		<td><%= link_to "Delete", f, :method=>"delete", :data=>{:confirm=>"Are you sure!"}%></td>
+		</tr>
+   <%end%>
+	
+	
+</table>
+<%= link_to "back" , new_question_path %>
+<%= link_to "clientpage",new_survey_path %>
+
+

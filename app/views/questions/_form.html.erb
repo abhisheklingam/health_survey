@@ -1,0 +1,60 @@
+<script src="/assets/questions/new.js"></script>
+
+
+
+<%= render "error_page"%>
+
+<center><h4>Admin Page </h4>
+<%= image_tag("images.jpg", :alt => "rails image") %>
+
+
+
+<table>
+	<%= form_for @question do | question | %>
+		<tr>
+			<td><%= question.label :"question:" %> </td>
+
+			<td><%= question.text_field :quest,:hint => "Question should be ended with question mark"%> </td>
+			<td><button type="button" onclick="myFunction();">?</button></td>
+
+			<script type="text/javascript">
+				function myFunction() {
+				    alert("Please enter question with question mark");
+				}
+			</script>
+		</tr>
+
+		<br>
+		<td><%= question.label :"option1:" ,class: 'control-label col-sm-1'%> </td>
+		<td><%= question.text_field :option1, class: 'form-control'%> </td>
+		</tr>
+		</tr>
+		
+		<br>
+		<td><%= question.label :"option2:" %> </td>
+		<td><%= question.text_field :option2 %> </td>
+		</tr>
+		</tr>
+
+		<br>
+		<td><%= question.label :"option3:"  %> </td>
+		<td><%= question.text_field :option3 %> </td>
+		</tr>
+		<br>
+		<td><%= question.label :"option4:"  %> </td>
+		<td><%= question.text_field :option4 %> </td>
+		</tr>
+		<br>
+		<td><%= question.label :"option5:" %> </td>
+		<td><%= question.text_field :option5 %> </td>
+		</tr>
+
+		<tr>
+		<center><td><%= question.submit "ADD" , class: "btn"%> </td></center>
+
+<td><%= question.submit "Update" %></td>
+      
+		</tr></center>
+
+	<%end%>
+</table>
