@@ -20,6 +20,9 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-production:
-  <<: *default
-  database: db/production.sqlite3
+production:  
+    adapter: postgresql
+  database: d7n05hndi8s9mr
+  username: atzdepjzaqjugi
+  password: zjmEwjfJOdswzVxu5dFEn84Z_Q
+  host:  postgres://atzdepjzaqjugi:zjmEwjfJOdswzVxu5dFEn84Z_Q@ec2-54-204-13-220.compute-1.amazonaws.com:5432/d7n05hndi8s9mr
