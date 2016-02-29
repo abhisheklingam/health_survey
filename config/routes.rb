@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get 'ratings/show'
 
+
+
   resources :admins
 
   resources :users
@@ -38,7 +40,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'questions#new'
+  root 'surveys#new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
